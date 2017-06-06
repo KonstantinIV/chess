@@ -25,7 +25,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public Collection<Move> calculateLegalMoves(Board board) {
+    public Collection<Move> calculateLegalMoves(final Board board) {
 
         final List<Move> legalMoves = new ArrayList<>();
 
@@ -89,6 +89,11 @@ public class Pawn extends Piece {
 
 
             return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public Pawn movePiece(final Move move) {
+        return new Pawn(move.getMovedPiece().getPieceAlliance(), move.getDestinationCoordinate());
     }
 
     @Override
